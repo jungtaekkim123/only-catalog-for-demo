@@ -27,10 +27,24 @@
     },
     {
       "name": "rtk",
-      "description": "Rust Token Killer — 토큰 최적화 CLI 프록시",
+      "description": "Rust Token Killer — Bash 호출을 rtk로 rewrite하여 토큰 60-90% 절약. rtk 바이너리(brew install rtk)는 별도 설치 필요.",
       "source": {
         "source": "github",
         "repo": "rtk-ai/rtk"
+      },
+      "strict": false,
+      "hooks": {
+        "PreToolUse": [
+          {
+            "matcher": "Bash",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "${CLAUDE_PLUGIN_ROOT}/hooks/claude/rtk-rewrite.sh"
+              }
+            ]
+          }
+        ]
       }
     }
   ]
