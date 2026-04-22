@@ -14,13 +14,15 @@ only-catalog-for-demo/
 
 ## 노출하는 plugin
 
-| plugin | 원본 |
-|---|---|
-| `handoff-skill` | [ykdojo/claude-code-tips](https://github.com/ykdojo/claude-code-tips) |
-| `context-engineering` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) |
-| `rtk` | [rtk-ai/rtk](https://github.com/rtk-ai/rtk) |
+| plugin | 원본 | 참조 범위 |
+|---|---|---|
+| `handoff-skill` | [ykdojo/claude-code-tips](https://github.com/ykdojo/claude-code-tips) | **파일 참조** (`skills/handoff`만) |
+| `context-engineering` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | repo 전체 |
+| `rtk` | [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | repo 전체 |
 
-모두 외부 repo를 **그대로 참조**하며, 이 레포에는 코드가 복사되어 있지 않습니다.
+모두 외부 repo를 참조하며, 이 레포에는 코드가 복사되어 있지 않습니다.
+
+> `handoff-skill`은 원본 repo 전체가 아니라 `skills/handoff` **한 디렉토리(파일)만** 참조합니다. 외부 repo 중 일부만 골라 가져오는 방식.
 
 ## 사용 방법 (Claude Code CLI)
 

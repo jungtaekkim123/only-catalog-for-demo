@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "handoff-skill",
-      "description": "ykdojo의 handoff skill만 큐레이션 (strict:false로 외부 plugin 일부만 노출)",
+      "description": "ykdojo/claude-code-tips의 handoff skill 파일 참조",
       "source": {
         "source": "github",
         "repo": "ykdojo/claude-code-tips"
