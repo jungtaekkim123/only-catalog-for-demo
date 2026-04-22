@@ -8,42 +8,11 @@
   },
   "plugins": [
     {
-      "name": "handoff-skill",
-      "description": "ykdojo/claude-code-tips의 handoff skill 파일 참조",
-      "source": {
-        "source": "github",
-        "repo": "ykdojo/claude-code-tips"
-      },
-      "strict": true
-    },
-    {
       "name": "context-engineering",
       "description": "Context Engineering plugin 통째 참조 (외부 plugin 그대로 패스스루)",
       "source": {
         "source": "github",
         "repo": "muratcankoylan/Agent-Skills-for-Context-Engineering"
-      }
-    },
-    {
-      "name": "rtk",
-      "description": "Rust Token Killer — Bash 호출을 rtk로 rewrite하여 토큰 60-90% 절약. rtk 바이너리(brew install rtk)는 별도 설치 필요.",
-      "source": {
-        "source": "github",
-        "repo": "rtk-ai/rtk"
-      },
-      "strict": false,
-      "hooks": {
-        "PreToolUse": [
-          {
-            "matcher": "Bash",
-            "hooks": [
-              {
-                "type": "command",
-                "command": "${CLAUDE_PLUGIN_ROOT}/hooks/claude/rtk-rewrite.sh"
-              }
-            ]
-          }
-        ]
       }
     }
   ]
