@@ -14,8 +14,7 @@
         "source": "github",
         "repo": "ykdojo/claude-code-tips"
       },
-      "skills": "./skills/handoff",
-      "strict": false
+      "strict": true
     },
     {
       "name": "context-engineering",
