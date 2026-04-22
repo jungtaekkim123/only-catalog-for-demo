@@ -1,0 +1,29 @@
+{
+  "name": "only-catalog-demo",
+  "owner": {
+    "name": "Ignite AI TF"
+  },
+  "metadata": {
+    "description": "marketplace.json '참조만' 방식 데모 — 외부 plugin을 코드 복사 없이 카탈로그로만 노출"
+  },
+  "plugins": [
+    {
+      "name": "handoff-skill",
+      "description": "ykdojo의 handoff skill만 큐레이션 (strict:false로 외부 plugin 일부만 노출)",
+      "source": {
+        "source": "github",
+        "repo": "ykdojo/claude-code-tips"
+      },
+      "skills": "./skills/handoff",
+      "strict": false
+    },
+    {
+      "name": "context-engineering",
+      "description": "Context Engineering plugin 통째 참조 (외부 plugin 그대로 패스스루)",
+      "source": {
+        "source": "github",
+        "repo": "muratcankoylan/Agent-Skills-for-Context-Engineering"
+      }
+    }
+  ]
+}
