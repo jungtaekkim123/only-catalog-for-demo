@@ -12,17 +12,15 @@ only-catalog-for-demo/
     └── marketplace.json   ← 카탈로그 매니페스트 (전부)
 ```
 
-## 노출하는 두 가지 plugin
+## 노출하는 plugin
 
-| plugin | 패턴 | 동작 |
-|---|---|---|
-| `handoff-skill` | **큐레이션** (`strict: false`) | [ykdojo/claude-code-tips](https://github.com/ykdojo/claude-code-tips)의 `skills/handoff` 하나만 골라 노출 |
-| `context-engineering` | **패스스루** | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) plugin을 그대로 노출 |
+| plugin | 원본 |
+|---|---|
+| `handoff-skill` | [ykdojo/claude-code-tips](https://github.com/ykdojo/claude-code-tips) |
+| `context-engineering` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) |
+| `rtk` | [rtk-ai/rtk](https://github.com/rtk-ai/rtk) |
 
-두 항목은 "참조만" 안에서도 거버넌스 슬라이더의 양 끝을 보여줍니다.
-
-- **큐레이션**: 외부 repo의 어느 부분이 사내에 풀릴지 우리(매니페스트)가 결정.
-- **패스스루**: 외부 plugin 작성자의 정의를 그대로 신뢰하고 위임.
+모두 외부 repo를 **그대로 참조**하며, 이 레포에는 코드가 복사되어 있지 않습니다.
 
 ## 사용 방법 (Claude Code CLI)
 
@@ -38,16 +36,12 @@ only-catalog-for-demo/
 /plugin
 ```
 
-`handoff-skill`, `context-engineering` 두 항목이 보입니다.
-
 ### 3) 설치
 
 ```bash
-# 큐레이션 패턴
 /plugin install handoff-skill@only-catalog-demo
-
-# 패스스루 패턴
 /plugin install context-engineering@only-catalog-demo
+/plugin install rtk@only-catalog-demo
 ```
 
 ### 4) 업데이트 / 제거
@@ -68,7 +62,7 @@ only-catalog-for-demo/
 claude plugin validate .
 ```
 
-> 주의: 이 검증은 `marketplace.json`의 **구문/스키마**만 확인합니다. 외부 repo가 살아있는지, `strict: false`와 외부 `plugin.json`의 충돌 여부 같은 **런타임 결합 문제는 `/plugin install` 시점**에 비로소 드러납니다.
+> 주의: 이 검증은 `marketplace.json`의 **구문/스키마**만 확인합니다. 외부 repo가 살아있는지 같은 **런타임 결합 문제는 `/plugin install` 시점**에 비로소 드러납니다.
 
 ## 참조만 방식의 트레이드오프
 
@@ -76,7 +70,6 @@ claude plugin validate .
 |---|---|
 | 사내 repo가 가벼움 (매니페스트 1개 파일) | 외부 repo에 의존 — 오프라인 시 설치 불가 |
 | 외부 변경이 자동 반영됨 | 외부 변경이 자동 반영됨 (양날의 검) |
-| 큐레이션 의도가 코드(매니페스트)에 명시 | `strict: false`는 외부 `plugin.json`이 components를 추가하는 순간 충돌 |
 
 외부 변경 위험을 줄이려면 `source`에 `ref`(브랜치/태그) 또는 `sha`(정확한 커밋)로 핀(pin)을 박는 것이 안전합니다.
 
